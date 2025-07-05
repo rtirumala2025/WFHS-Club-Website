@@ -3,6 +3,7 @@ import { Search, Menu, X, Users, ChevronRight } from 'lucide-react';
 
 const ClubsWebsite = () => {
   const [selectedClub, setSelectedClub] = useState('home');
+  const [previousView, setPreviousView] = useState('home');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -441,19 +442,15 @@ const ClubsWebsite = () => {
     const clubsByCategory = useMemo(() => {
       const grouped = clubs.reduce((acc, club) => {
         const category = club.category || 'Other';
-        if (!acc[category]) {
-          acc[category] = [];
-        }
+        if (!acc[category]) acc[category] = [];
         acc[category].push(club);
         return acc;
       }, {});
-
       const sortedCategories = Object.keys(grouped).sort();
       const result = {};
       sortedCategories.forEach(category => {
         result[category] = grouped[category].sort((a, b) => a.name.localeCompare(b.name));
       });
-
       return result;
     }, [clubs]);
 
@@ -465,9 +462,7 @@ const ClubsWebsite = () => {
           club.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           club.description.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        if (categoryClubs.length > 0) {
-          filtered[category] = categoryClubs;
-        }
+        if (categoryClubs.length > 0) filtered[category] = categoryClubs;
       });
       return filtered;
     }, [clubsByCategory, searchTerm]);
@@ -490,7 +485,7 @@ const ClubsWebsite = () => {
     'Sports': 'bg-teal-100 text-teal-800 border-teal-200',
     'STEM': 'bg-cyan-100 text-cyan-800 border-cyan-200',
     'Support': 'bg-gray-100 text-gray-800 border-gray-200',
-    'Leadership': 'bg-emerald-100 text-emerald-800 border-emerald-200',  
+    'Leadership': 'bg-emerald-100 text-emerald-800 border-emerald-200',
   };
 
   const CategoryGrid = ({ categories, categoryColors, clubsByCategory, onCategorySelect }) => (
@@ -548,9 +543,7 @@ const ClubsWebsite = () => {
             {club.category}
           </span>
         </div>
-        <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-          {club.description}
-        </p>
+        <p className="text-gray-600 text-sm mb-4 line-clamp-3">{club.description}</p>
         <div className="text-xs text-gray-500">
           <span className="font-medium">Sponsor:</span> {club.sponsor}
         </div>
@@ -567,7 +560,6 @@ const ClubsWebsite = () => {
         <ChevronRight size={20} className="rotate-180 mr-2" />
         Back to Clubs
       </button>
-
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
         <div className="p-8">
           <div className="flex items-start justify-between mb-6">
@@ -576,18 +568,15 @@ const ClubsWebsite = () => {
               {club.category}
             </span>
           </div>
-
           <div className="space-y-6">
             <div>
               <h2 className="text-lg font-semibold text-gray-900 mb-3">Description</h2>
               <p className="text-gray-700 leading-relaxed">{club.description}</p>
             </div>
-
             <div>
               <h2 className="text-lg font-semibold text-gray-900 mb-3">Sponsor</h2>
               <p className="text-gray-700">{club.sponsor}</p>
             </div>
-
             <div>
               <h2 className="text-lg font-semibold text-gray-900 mb-3">Category</h2>
               <span className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${categoryColors[club.category]}`}>
@@ -601,11 +590,13 @@ const ClubsWebsite = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-blue-50 to-slate-50 flex">
+      {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-40 w-80 shadow-2xl transform transition-transform duration-300 ease-in-out ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       } lg:translate-x-0 bg-white pt-0`}>
-        <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-6 py-6">
+        {/* Sidebar Header - UPDATED gradient */}
+          <div className="bg-indigo-600 px-6 py-6">
           <h1 className="text-xl font-bold text-white">WFHS Clubs</h1>
           <p className="text-blue-100 text-sm mt-1">& Organizations</p>
         </div>
@@ -624,7 +615,6 @@ const ClubsWebsite = () => {
               All Clubs
             </div>
           </button>
-
           <div className="mt-4">
             <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">
               Categories
@@ -658,11 +648,15 @@ const ClubsWebsite = () => {
         />
       )}
 
+      {/* Main Content */}
       <div className="lg:ml-80 flex-1">
-        <div className="w-full h-28 bg-gradient-to-r from-indigo-600 to-blue-600 flex items-center justify-center px-6 shadow text-white">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold">The Club Network @ WFHS</h1>
-            <p className="text-sm">Explore clubs and organizations at West Forsyth High School</p>
+        {/* Topbar - UPDATED gradient */}
+        <div className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 h-[104px] flex items-center shadow-md text-white px-6">
+          <div className="max-w-7xl mx-auto w-full text-center">
+            <h1 className="text-2xl font-bold leading-tight">The Club Network @ WFHS</h1>
+            <p className="text-sm text-blue-100 mt-1 leading-snug">
+              Explore clubs and organizations at West Forsyth High School
+            </p>
           </div>
         </div>
 
@@ -682,12 +676,8 @@ const ClubsWebsite = () => {
             />
           ) : (
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                {selectedClub} Clubs
-              </h2>
-              <p className="text-gray-600">
-                Clubs in the {selectedClub} category
-              </p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedClub} Clubs</h2>
+              <p className="text-gray-600">Clubs in the {selectedClub} category</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredClubs[selectedClub]?.map(club => (
                   <ClubCard
