@@ -1,15 +1,30 @@
-import React from 'react';
+// src/components/Header.jsx
+import React, { useEffect, useState } from 'react';
 import { Search, Menu, X } from 'lucide-react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase';
+import UserMenu from '../auth/userMenu';
+import { Link } from 'react-router-dom';
 
-const Header = ({ 
-  sidebarOpen, 
-  setSidebarOpen, 
-  searchTerm, 
-  setSearchTerm, 
+const Header = ({
+  sidebarOpen,
+  setSidebarOpen,
+  searchTerm,
+  setSearchTerm,
   showSearch = true,
   title = "WFHS Clubs",
   subtitle = "& Organizations"
 }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Auth state changed:", currentUser);
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
   return (
     <>
       {/* Mobile Menu Button */}
@@ -23,9 +38,22 @@ const Header = ({
       </div>
 
       {/* Sidebar Header */}
-      <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-indigo-600">
-        <h1 className="text-xl font-bold text-white">{title}</h1>
-        <p className="text-blue-100 text-sm mt-1">{subtitle}</p>
+      <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-indigo-600 flex justify-between items-center">
+        <div>
+          <h1 className="text-xl font-bold text-white">{title}</h1>
+          <p className="text-blue-100 text-sm mt-1">{subtitle}</p>
+        </div>
+
+        {/* User Menu or Login Link */}
+        <div className="text-white">
+          {user ? (
+            <UserMenu user={user} />
+          ) : (
+            <Link to="/login" className="hover:underline text-sm">
+              Login
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Search Bar */}

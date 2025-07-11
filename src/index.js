@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './App.css';
-import App from './App.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import { AuthProvider } from './firebase';
+import './index.css';
 
-// Get the root element
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// Render the app
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </BrowserRouter>
 );
