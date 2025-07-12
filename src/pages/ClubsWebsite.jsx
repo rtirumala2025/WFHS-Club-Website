@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Menu, X, Users, ChevronRight } from 'lucide-react';
+import { Search, Menu, X, Users, ChevronRight, BarChart3 } from 'lucide-react';
 import { useAuth } from '../firebase';
 import UserMenu from '../components/auth/userMenu';
+import { useNavigate } from 'react-router-dom';
 // Removed: import CalendarSection from '../components/club/CalendarSection';
 // import { Routes, Route } from 'react-router-dom';
 // import LoginPage from '../components/auth/login_page';
@@ -12,6 +13,21 @@ const ClubsWebsite = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    setSelectedCategory(null);
+    setSelectedClub(null);
+    setSearchTerm('');
+  };
+
+  const handleCompareClick = () => {
+    navigate('/compare');
+  };
+
+  const handleEventsClick = () => {
+    navigate('/events');
+  };
 
 // Club data parsed from CSV
  const clubsData = [
@@ -460,18 +476,10 @@ const ClubsWebsite = () => {
       return result;
     }, [clubs]);
 
+    // Since we removed the search bar, always return all clubs
     const filteredClubs = useMemo(() => {
-      if (!searchTerm) return clubsByCategory;
-      const filtered = {};
-      Object.keys(clubsByCategory).forEach(category => {
-        const categoryClubs = clubsByCategory[category].filter(club =>
-          club.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          club.description.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        if (categoryClubs.length > 0) filtered[category] = categoryClubs;
-      });
-      return filtered;
-    }, [clubsByCategory, searchTerm]);
+      return clubsByCategory;
+    }, [clubsByCategory]);
 
     return { clubsByCategory, filteredClubs };
   };
@@ -600,21 +608,27 @@ const ClubsWebsite = () => {
       {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-40 w-80 shadow-2xl transform transition-transform duration-300 ease-in-out ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0 bg-white pt-0`}>
+      } bg-white pt-0`}>
         {/* Sidebar Header - UPDATED gradient */}
         <div className="bg-indigo-600 px-6 py-6">
-          <h1 className="text-xl font-bold text-white">WFHS Clubs</h1>
-          <p className="text-blue-100 text-sm mt-1">& Organizations</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-xl font-bold text-white">WFHS Clubs</h1>
+              <p className="text-blue-100 text-sm mt-1">& Organizations</p>
+            </div>
+            {/* Close button for sidebar */}
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <X size={20} className="text-white" />
+            </button>
+          </div>
         </div>
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <div className="px-6 py-4 overflow-y-auto">
           <button
-            onClick={() => { setSelectedCategory(null); setSelectedClub(null); }}
-            className={`w-full text-left p-3 rounded-lg mb-2 transition-colors ${
-              !selectedCategory && !selectedClub
-                ? 'bg-blue-100 text-blue-800 font-medium'
-                : 'hover:bg-gray-100'
-            }`}
+            onClick={handleHomeClick}
+            className="w-full text-left p-3 rounded-lg mb-2 transition-colors"
           >
             <div className="flex items-center">
               <Users size={18} className="mr-3" />
@@ -649,20 +663,73 @@ const ClubsWebsite = () => {
 
       {sidebarOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Main Content */}
-      <div className="lg:ml-80 flex-1">
+      <div className={`flex-1 transition-all duration-300 ease-in-out ${sidebarOpen ? 'lg:ml-80' : 'lg:ml-0'}`}>
         {/* Topbar - UPDATED gradient */}
         <div className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 h-[104px] flex items-center shadow-md text-white px-6 relative">
+          {/* Hamburger Menu Button - Mobile */}
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="lg:hidden absolute left-6 top-1/2 -translate-y-1/2 p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+          >
+            {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          
+          {/* Hamburger Menu Button - Desktop */}
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+          >
+            <Menu size={24} />
+          </button>
+
+          {/* Compare Button - Mobile */}
+          <button
+            onClick={handleCompareClick}
+            className="lg:hidden absolute left-20 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium"
+          >
+            Compare
+          </button>
+
+          {/* Events Button - Mobile */}
+          <button
+            onClick={handleEventsClick}
+            className="lg:hidden absolute left-44 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium"
+          >
+            Events
+          </button>
+
+          {/* Compare Button - Desktop */}
+          <button
+            onClick={handleCompareClick}
+            className="hidden lg:block absolute left-20 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium"
+          >
+            Compare
+          </button>
+
+          {/* Events Button - Desktop */}
+          <button
+            onClick={handleEventsClick}
+            className="hidden lg:block absolute left-44 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium"
+          >
+            Events
+          </button>
+          
           <div className="max-w-7xl mx-auto w-full text-center">
-            <h1 className="text-2xl font-bold leading-tight">The Club Network @ WFHS</h1>
-            <p className="text-sm text-blue-100 mt-1 leading-snug">
-              Explore clubs and organizations at West Forsyth High School
-            </p>
+            <button
+              onClick={handleHomeClick}
+              className="hover:opacity-80 transition-opacity cursor-pointer"
+            >
+              <h1 className="text-2xl font-bold leading-tight">The Club Network @ WFHS</h1>
+              <p className="text-sm text-blue-100 mt-1 leading-snug">
+                Explore clubs and organizations at West Forsyth High School
+              </p>
+            </button>
           </div>
           {/* User dropdown menu in top right */}
           {user && (
@@ -686,7 +753,7 @@ const ClubsWebsite = () => {
           ) : selectedCategory && !selectedClub ? (
             <div>
               <button
-                onClick={() => setSelectedCategory(null)}
+                onClick={handleHomeClick}
                 className="mb-6 flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
                 <ChevronRight size={20} className="rotate-180 mr-2" />
