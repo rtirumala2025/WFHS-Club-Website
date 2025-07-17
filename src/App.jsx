@@ -5,6 +5,7 @@ import ClubsWebsite from './pages/ClubsWebsite';
 import Login from './pages/Login';
 import Compare from './pages/Compare';
 import Events from './pages/Events';
+import CreateAccount from './pages/CreateAccount';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -76,6 +77,14 @@ const AppRoutes = () => {
             <ProtectedRoute>
               <Events />
             </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/create-account" 
+          element={
+            <PublicRoute>
+              <CreateAccount />
+            </PublicRoute>
           } 
         />
         <Route path="*" element={<Navigate to="/" replace />} />

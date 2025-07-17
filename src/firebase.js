@@ -1,14 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { auth, db, signInWithGooglePopup } from './firebaseConfig';
 
-// Create authentication context
 const AuthContext = createContext();
-
-// Mock user data for development
-const mockUser = {
-  uid: 'mock-user-id',
-  email: 'test@example.com',
-  displayName: 'Test User'
-};
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -23,31 +16,32 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate authentication check
-    const timer = setTimeout(() => {
-      setUser(null); // Set to null for now to show login page
+    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+      setUser(firebaseUser);
       setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    });
+    return () => unsubscribe();
   }, []);
 
   const login = async (email, password) => {
-    // Mock login - in real app, this would call Firebase Auth
-    setUser(mockUser);
-    return mockUser;
+    return auth.signInWithEmailAndPassword(email, password);
   };
 
   const logout = async () => {
-    // Mock logout
+    await auth.signOut();
     setUser(null);
+  };
+
+  const signInWithGoogle = async () => {
+    return signInWithGooglePopup();
   };
 
   const value = {
     user,
     login,
     logout,
-    loading
+    signInWithGoogle,
+    loading,
   };
 
   return (
