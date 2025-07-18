@@ -26,6 +26,11 @@ const ClubsWebsite = () => {
     navigate('/events');
   };
 
+  // Add handler for About button
+  const handleAboutClick = () => {
+    navigate('/about');
+  };
+
   // Temporary club data for testing
 // Club data parsed from CSV
 const clubsData = [
@@ -709,6 +714,13 @@ const clubsData = [
               >
                 Events
               </button>
+              {/* About Button */}
+              <button
+                onClick={handleAboutClick}
+                className="px-3 py-2 rounded-lg bg-white border-2 border-black hover:bg-gray-50 hover:shadow-lg transition-all duration-300 text-sm font-medium text-black"
+              >
+                About
+              </button>
             </div>
             
             {/* Center - Title */}
@@ -907,6 +919,13 @@ const clubsData = [
                 className="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white hover:shadow-lg transition-all duration-300 text-sm font-medium text-blue-600"
               >
                 Events
+              </button>
+              {/* About Button */}
+              <button
+                onClick={handleAboutClick}
+                className="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white hover:shadow-lg transition-all duration-300 text-sm font-medium text-blue-600"
+              >
+                About
               </button>
             </div>
             

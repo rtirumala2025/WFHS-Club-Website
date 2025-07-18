@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../firebase';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 import { Mail, Lock, Eye, EyeOff, Users, Sparkles } from 'lucide-react';
 
 const Login = () => {
@@ -12,6 +14,22 @@ const Login = () => {
   
   const { login, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
+
+  // Add state for reset password feedback
+  const [resetMessage, setResetMessage] = useState('');
+
+  // Handle password reset
+  const handleResetPassword = async () => {
+    const emailPrompt = window.prompt('Enter your email to reset your password:');
+    if (!emailPrompt) return;
+    setResetMessage('');
+    try {
+      await sendPasswordResetEmail(auth, emailPrompt);
+      setResetMessage('Password reset email sent! Check your inbox.');
+    } catch (err) {
+      setResetMessage('Failed to send reset email. Please check your email address.');
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -89,9 +107,18 @@ const Login = () => {
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-yellow-800 mb-2">
-                Password
-              </label>
+              <div className="flex items-center justify-between mb-2">
+                <label htmlFor="password" className="block text-sm font-semibold text-yellow-800">
+                  Password
+                </label>
+                <button
+                  type="button"
+                  onClick={handleResetPassword}
+                  className="text-xs text-blue-600 hover:underline focus:outline-none ml-2"
+                >
+                  Reset Password
+                </button>
+              </div>
               <div className="relative">
                 <Lock size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                 <input
@@ -117,6 +144,12 @@ const Login = () => {
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-xl p-4">
                 <p className="text-red-600 text-sm font-medium">{error}</p>
+              </div>
+            )}
+            {/* Reset Message */}
+            {resetMessage && (
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-2">
+                <p className="text-blue-700 text-sm font-medium">{resetMessage}</p>
               </div>
             )}
 
@@ -153,14 +186,22 @@ const Login = () => {
             </button>
           </div>
 
-          {/* Demo Credentials with school colors */}
-          <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl border border-blue-200">
-            <p className="text-blue-700 text-sm font-semibold mb-2 flex items-center">
-              <Sparkles size={16} className="mr-2" />
-              Demo Credentials:
-            </p>
-            <p className="text-blue-600 text-xs">Email: test@example.com</p>
-            <p className="text-blue-600 text-xs">Password: (any password works)</p>
+          {/* Create Account Button */}
+          <div className="mt-4">
+            <button
+              type="button"
+              onClick={() => navigate('/create-account')}
+              disabled={loading}
+              className="w-full flex items-center justify-center bg-white border-2 border-blue-400 text-blue-700 font-semibold py-3 px-6 rounded-xl shadow hover:bg-blue-50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <span className="w-5 h-5 mr-2 flex items-center justify-center">
+                {/* You can use a user icon or plus icon here if desired */}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </span>
+              Create Account
+            </button>
           </div>
         </div>
       </div>
@@ -195,4 +236,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;
