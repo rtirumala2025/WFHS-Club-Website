@@ -7,6 +7,7 @@ import Compare from './pages/Compare';
 import Events from './pages/Events';
 import CreateAccount from './pages/CreateAccount';
 import About from './pages/About';
+import Profile from './pages/Profile';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -97,6 +98,14 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute>
               <About />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           } 
         />

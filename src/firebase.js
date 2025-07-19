@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, db, signInWithGooglePopup } from './firebaseConfig';
+import { storage } from './firebaseConfig';
 
 const AuthContext = createContext();
 
@@ -10,6 +11,8 @@ export const useAuth = () => {
   }
   return context;
 };
+
+export { db, storage };
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
