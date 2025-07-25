@@ -30,6 +30,9 @@ const Profile = () => {
   const [optimisticProfile, setOptimisticProfile] = useState(null);
   const [editLoading, setEditLoading] = useState({ name: false, photo: false });
   const [nameError, setNameError] = useState("");
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [nameInput, setNameInput] = useState('');
+  const [nameEditCancelled, setNameEditCancelled] = useState(false);
   const navigate = useNavigate();
 
   // 1. Show UI instantly using Auth data
@@ -83,25 +86,62 @@ const Profile = () => {
     if (user) loadProfile();
   }, [user, loadProfile]);
 
-  // 3. Optimistic update for name
+  useEffect(() => {
+    setNameInput(displayProfile.name || '');
+  }, [displayProfile.name]);
+
+  useEffect(() => {
+    if (isEditingName && nameInput.trim() && displayProfile.name === nameInput.trim()) {
+      setIsEditingName(false);
+    }
+  }, [displayProfile.name, nameInput, isEditingName]);
+
+  const handleEditName = () => setIsEditingName(true);
+  const handleCancelEditName = () => {
+    setNameInput(displayProfile.name || '');
+    setIsEditingName(false);
+    setEditLoading((l) => ({ ...l, name: false }));
+    setNameEditCancelled(true);
+  };
+
+  const handleNameInputChange = (e) => setNameInput(e.target.value);
+
   const handleNameUpdate = async (newName) => {
     if (!user) return;
+    if (!newName.trim()) {
+      alert('Name cannot be empty.');
+      return;
+    }
     setEditLoading((l) => ({ ...l, name: true }));
-    setOptimisticProfile((prev) => ({ ...prev, name: newName }));
+    setOptimisticProfile((prev) => ({ ...prev, name: newName.trim() }));
     setNameError("");
     let errorOccurred = false;
+    let timeoutId;
     try {
-      console.log('Profile: Attempting to update name in Firestore', newName);
+      // Update Firestore
       const ref = doc(db, 'users', user.uid);
-      await updateDoc(ref, { name: newName });
-      console.log('Profile: updateDoc success');
+      await updateDoc(ref, { name: newName.trim() });
+      // Update backend with timeout
+      await Promise.race([
+        fetch('/api/users', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.accessToken || (user.stsTokenManager && user.stsTokenManager.accessToken) || ''}`
+          },
+          body: JSON.stringify({ name: newName.trim(), uid: user.uid, email: user.email })
+        }),
+        new Promise((_, reject) => {
+          timeoutId = setTimeout(() => reject(new Error('Request timed out')), 10000);
+        })
+      ]);
       await loadProfile();
-      console.log('Profile: loadProfile after update success');
+      window.location.reload();
     } catch (error) {
       errorOccurred = true;
-      console.error('Profile: Error updating name in Firestore', error);
       setNameError(error.message || 'Failed to save name.');
     } finally {
+      clearTimeout(timeoutId);
       setEditLoading((l) => ({ ...l, name: false }));
       if (errorOccurred) {
         setOptimisticProfile((prev) => ({ ...prev, name: profile?.name || user.displayName || user.email?.split('@')[0] || 'User' }));
@@ -156,6 +196,10 @@ const Profile = () => {
       await updateDoc(refDoc, { clubsJoined: clubIds });
       await loadProfile();
     }
+  };
+
+  const handleNameEditDone = () => {
+    setEditLoading((l) => ({ ...l, name: false }));
   };
 
   // Filter events to only those related to selected clubs

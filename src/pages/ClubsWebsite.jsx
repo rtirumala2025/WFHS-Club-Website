@@ -505,7 +505,8 @@ const clubsData = [
     'Leadership': 'bg-emerald-100 text-emerald-800 border-emerald-200',
   };
 
-  const CategoryGrid = ({ categories, categoryColors, clubsByCategory, onCategorySelect }) => (
+  // Rename the local CategoryGrid to avoid conflict
+  const LocalCategoryGrid = ({ categories, categoryColors, clubsByCategory, onCategorySelect }) => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {categories.map(category => (
         <button
@@ -749,7 +750,7 @@ const clubsData = [
         <div className="p-6">
           {!selectedCategory && !selectedClub ? (
             <>
-              <CategoryGrid 
+              <LocalCategoryGrid 
                 categories={Object.keys(CategoryColors)}
                 categoryColors={CategoryColors}
                 clubsByCategory={clubsByCategory}
@@ -767,15 +768,18 @@ const clubsData = [
               </button>
               <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedCategory} Clubs</h2>
               <p className="text-gray-600">Clubs in the {selectedCategory} category</p>
+              {/* Category club grid rendering - fix fallback rendering */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredClubs[selectedCategory]?.map(club => (
-                  <ClubCard
-                    key={club.id}
-                    club={club}
-                    categoryColors={CategoryColors}
-                    onClick={() => setSelectedClub(club.id)}
-                  />
-                )) || (
+                {Array.isArray(filteredClubs[selectedCategory]) && filteredClubs[selectedCategory].length > 0 ? (
+                  filteredClubs[selectedCategory].map(club => (
+                    <ClubCard
+                      key={club.id}
+                      club={club}
+                      categoryColors={CategoryColors}
+                      onClick={() => setSelectedClub(club.id)}
+                    />
+                  ))
+                ) : (
                   <div className="col-span-full text-center py-12">
                     <p className="text-gray-500">No clubs found in this category.</p>
                   </div>
@@ -792,213 +796,6 @@ const clubsData = [
         </div>
       </div>
     </div>
-  );
-
-  return (
-    <>
-      <style jsx>{`
-        @keyframes blob {
-          0% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-          100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
-      <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-blue-50 to-slate-50 flex">
-        {/* Sidebar */}
-        <div className={`fixed inset-y-0 left-0 z-40 w-80 shadow-2xl transform transition-transform duration-300 ease-in-out ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } bg-white pt-0`}>
-          {/* Sidebar Header - UPDATED gradient */}
-          <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-6 py-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-xl font-bold text-white">WFHS Clubs</h1>
-                <p className="text-blue-100 text-sm mt-1">& Organizations</p>
-              </div>
-              {/* Close button for sidebar */}
-              <button
-                onClick={() => setSidebarOpen(false)}
-                className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-              >
-                <X size={20} className="text-white" />
-              </button>
-            </div>
-          </div>
-          <div className="px-6 py-4 overflow-y-auto">
-            <button
-              onClick={handleHomeClick}
-              className="w-full text-left p-3 rounded-lg mb-2 transition-colors"
-            >
-              <div className="flex items-center">
-                <Users size={18} className="mr-3" />
-                All Clubs
-              </div>
-            </button>
-            <div className="mt-4">
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">
-                Categories
-              </h3>
-              {Object.keys(CategoryColors).map(category => (
-                <button
-                  key={category}
-                  onClick={() => { setSelectedCategory(category); setSelectedClub(null); }}
-                  className={`w-full text-left p-2 rounded-lg mb-1 transition-colors ${
-                    selectedCategory === category && !selectedClub
-                      ? CategoryColors[category]
-                      : 'hover:bg-gray-50'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span>{category}</span>
-                    <span className={`px-2 py-1 rounded-full text-xs ${CategoryColors[category]}`}>
-                      {clubsByCategory[category]?.length || 0}
-                    </span>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {sidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-30"
-            onClick={() => setSidebarOpen(false)}
-          />
-        )}
-
-        {/* Main Content */}
-        <div className={`flex-1 transition-all duration-300 ease-in-out ${sidebarOpen ? 'lg:ml-80' : 'lg:ml-0'}`}>
-          {/* Topbar - Updated to match login page aesthetic */}
-          <div className="w-full bg-gradient-to-br from-blue-100 via-blue-50 to-white h-[104px] flex items-center justify-between shadow-lg border-b border-white/50 backdrop-blur-sm relative overflow-hidden">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-              <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-25 animate-blob animation-delay-2000"></div>
-            </div>
-            
-            {/* Left side - Menu and buttons */}
-            <div className="flex items-center space-x-4 relative z-10">
-              {/* Hamburger Menu Button */}
-              <button
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="p-2 rounded-lg bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white hover:shadow-lg transition-all duration-300"
-              >
-                {sidebarOpen ? <X size={24} className="text-blue-600" /> : <Menu size={24} className="text-blue-600" />}
-              </button>
-
-              {/* Compare Button */}
-              <button
-                onClick={handleCompareClick}
-                className="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white hover:shadow-lg transition-all duration-300 text-sm font-medium text-blue-600"
-              >
-                Compare
-              </button>
-
-              {/* Events Button */}
-              <button
-                onClick={handleEventsClick}
-                className="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white hover:shadow-lg transition-all duration-300 text-sm font-medium text-blue-600"
-              >
-                Events
-              </button>
-              {/* About Button */}
-              <button
-                onClick={handleAboutClick}
-                className="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white hover:shadow-lg transition-all duration-300 text-sm font-medium text-blue-600"
-              >
-                About
-              </button>
-            </div>
-            
-            {/* Center - Title */}
-            <div className="flex-1 text-center relative z-10">
-              <button
-                onClick={handleHomeClick}
-                className="hover:opacity-80 transition-opacity cursor-pointer"
-              >
-                <h1 className="text-2xl font-bold leading-tight text-yellow-800 drop-shadow-sm">The Club Network @ WFHS</h1>
-                <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 bg-clip-text text-transparent">
-                  <p className="text-sm font-medium mt-1 leading-snug">
-                    Explore clubs and organizations at West Forsyth High School
-                  </p>
-                </div>
-              </button>
-            </div>
-
-            {/* Right side - User menu */}
-            {user && (
-              <div className="flex items-center relative z-[9999]">
-                <UserMenu user={user} />
-              </div>
-            )}
-          </div>
-
-          <div className="p-6">
-            {!selectedCategory && !selectedClub ? (
-              <>
-                <CategoryGrid 
-                  categories={Object.keys(CategoryColors)}
-                  categoryColors={CategoryColors}
-                  clubsByCategory={clubsByCategory}
-                  onCategorySelect={setSelectedCategory}
-                />
-              </>
-            ) : selectedCategory && !selectedClub ? (
-              <div>
-                <button
-                  onClick={handleHomeClick}
-                  className="mb-6 flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  <ChevronRight size={20} className="rotate-180 mr-2" />
-                  Home Page
-                </button>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedCategory} Clubs</h2>
-                <p className="text-gray-600">Clubs in the {selectedCategory} category</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredClubs[selectedCategory]?.map(club => (
-                    <ClubCard
-                      key={club.id}
-                      club={club}
-                      categoryColors={CategoryColors}
-                      onClick={() => setSelectedClub(club.id)}
-                    />
-                  )) || (
-                    <div className="col-span-full text-center py-12">
-                      <p className="text-gray-500">No clubs found in this category.</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ) : selectedClubData ? (
-              <ClubDetails
-                club={selectedClubData}
-                categoryColors={CategoryColors}
-                onBack={() => setSelectedClub(null)}
-              />
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </>
   );
 };
 

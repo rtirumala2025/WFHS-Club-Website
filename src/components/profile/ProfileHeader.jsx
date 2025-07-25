@@ -7,30 +7,22 @@ const ProfileHeader = ({ user, onSignOut, onImageUpload, onNameUpdate, editLoadi
   const [isEditingName, setIsEditingName] = useState(false);
   const [nameInput, setNameInput] = useState(user.name || '');
   const fileInputRef = useRef(null);
+  const prevUserNameRef = useRef(user.name);
 
   useEffect(() => {
     setNameInput(user.name || '');
   }, [user.name]);
 
-  const saveName = async () => {
-    if (!nameInput.trim()) {
-      alert('Name cannot be empty.');
-      return;
-    }
-    try {
-      if (onNameUpdate) {
-        await onNameUpdate(nameInput.trim());
-      }
+  useEffect(() => {
+    if (
+      isEditingName &&
+      user.name === nameInput &&
+      user.name !== prevUserNameRef.current
+    ) {
       setIsEditingName(false);
-    } catch (error) {
-      alert('Failed to save name. Please try again.');
     }
-  };
-
-  const cancelNameEdit = () => {
-    setNameInput(user.name || '');
-    setIsEditingName(false);
-  };
+    prevUserNameRef.current = user.name;
+  }, [user.name, nameInput, isEditingName]);
 
   const triggerFileInput = () => {
     fileInputRef.current?.click();
@@ -39,19 +31,14 @@ const ProfileHeader = ({ user, onSignOut, onImageUpload, onNameUpdate, editLoadi
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
-
-    // Validate file type
     if (!file.type.match(/image\/(jpeg|jpg|png)/)) {
       alert('Please select a JPG or PNG image file.');
       return;
     }
-
-    // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
       alert('Image file size must be less than 5MB.');
       return;
     }
-
     setIsUploading(true);
     try {
       await onImageUpload(file);
@@ -61,6 +48,28 @@ const ProfileHeader = ({ user, onSignOut, onImageUpload, onNameUpdate, editLoadi
     } finally {
       setIsUploading(false);
     }
+  };
+
+  const handleEditName = () => {
+    setIsEditingName(true);
+    setNameInput(user.name || '');
+  };
+
+  const handleCancelEditName = (e) => {
+    e?.preventDefault?.();
+    setIsEditingName(false);
+    setNameInput(user.name || '');
+  };
+
+  const handleSaveName = async (e) => {
+    e?.preventDefault?.();
+    if (!nameInput.trim() || nameInput.trim() === user.name) {
+      setIsEditingName(false);
+      setNameInput(user.name || '');
+      return;
+    }
+    await onNameUpdate(nameInput.trim());
+    setIsEditingName(false);
   };
 
   return (
@@ -82,14 +91,13 @@ const ProfileHeader = ({ user, onSignOut, onImageUpload, onNameUpdate, editLoadi
             </div>
           )}
         </div>
-        
         {/* Name and Info Section */}
         <div className="flex flex-col space-y-2">
           {/* Name Display */}
           <div className="flex items-center space-x-2">
             <h2 className="text-2xl font-bold text-gray-900">{user.name}</h2>
             <button
-              onClick={() => setIsEditingName(true)}
+              onClick={handleEditName}
               className="p-1 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 transition-colors"
               title="Edit name"
             >
@@ -103,12 +111,11 @@ const ProfileHeader = ({ user, onSignOut, onImageUpload, onNameUpdate, editLoadi
                 <input
                   type="text"
                   value={nameInput}
-                  onChange={(e) => setNameInput(e.target.value)}
+                  onChange={e => setNameInput(e.target.value)}
                   className="flex-1 text-lg font-bold text-gray-900 bg-white border-2 border-blue-300 rounded px-2 py-1 focus:outline-none focus:border-blue-500"
                   placeholder="Enter your name"
                   maxLength={50}
                   autoFocus
-                  disabled={editLoading?.name}
                 />
               </div>
               {nameError && (
@@ -116,21 +123,15 @@ const ProfileHeader = ({ user, onSignOut, onImageUpload, onNameUpdate, editLoadi
               )}
               <div className="flex items-center space-x-2">
                 <button
-                  onClick={saveName}
-                  className="flex items-center space-x-1 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors text-sm disabled:opacity-60"
-                  disabled={editLoading?.name}
+                  onClick={handleSaveName}
+                  className="flex items-center space-x-1 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors text-sm"
                 >
-                  {editLoading?.name ? (
-                    <span className="animate-spin inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-1"></span>
-                  ) : (
-                    <Check size={14} />
-                  )}
+                  <Check size={14} />
                   <span>Save</span>
                 </button>
                 <button
-                  onClick={cancelNameEdit}
+                  onClick={handleCancelEditName}
                   className="flex items-center space-x-1 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors text-sm"
-                  disabled={editLoading?.name}
                 >
                   <X size={14} />
                   <span>Cancel</span>
@@ -144,7 +145,6 @@ const ProfileHeader = ({ user, onSignOut, onImageUpload, onNameUpdate, editLoadi
           )}
         </div>
       </div>
-
       <div className="flex flex-col items-center space-y-4 mt-6 md:mt-0">
         {/* Upload Photo Button */}
         <button
