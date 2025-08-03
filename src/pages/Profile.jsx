@@ -136,7 +136,7 @@ const Profile = () => {
         })
       ]);
       await loadProfile();
-      window.location.reload();
+      setOptimisticProfile(null);
     } catch (error) {
       errorOccurred = true;
       setNameError(error.message || 'Failed to save name.');

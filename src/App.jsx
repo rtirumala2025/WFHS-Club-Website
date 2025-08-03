@@ -8,6 +8,7 @@ import Events from './pages/Events';
 import CreateAccount from './pages/CreateAccount';
 import About from './pages/About';
 import Profile from './pages/Profile';
+import Calendar from './pages/Calendar';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -106,6 +107,14 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/calendar" 
+          element={
+            <ProtectedRoute>
+              <Calendar />
             </ProtectedRoute>
           } 
         />

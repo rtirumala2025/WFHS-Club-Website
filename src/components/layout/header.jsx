@@ -1,5 +1,6 @@
 import React from 'react';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, Calendar as CalendarIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = ({ 
   sidebarOpen, 
@@ -23,9 +24,17 @@ const Header = ({
       </div>
 
       {/* Sidebar Header */}
-      <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-indigo-600">
-        <h1 className="text-xl font-bold text-white">{title}</h1>
-        <p className="text-blue-100 text-sm mt-1">{subtitle}</p>
+      <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-between">
+        <div>
+          <h1 className="text-xl font-bold text-white">{title}</h1>
+          <p className="text-blue-100 text-sm mt-1">{subtitle}</p>
+        </div>
+        <div className="flex items-center space-x-4">
+          <Link to="/about" className="text-white hover:text-yellow-300 font-medium text-lg transition-colors">About</Link>
+          <Link to="/calendar" className="flex items-center text-white hover:text-yellow-300 font-medium text-lg transition-colors">
+            <CalendarIcon size={20} className="mr-1" /> Calendar
+          </Link>
+        </div>
       </div>
 
       {/* Search Bar */}

@@ -35,9 +35,10 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
+  
     try {
       await login(email, password);
+      await syncUser(); // <- ADD THIS LINE
       navigate('/');
     } catch (err) {
       setError('Invalid email or password');
@@ -45,19 +46,20 @@ const Login = () => {
       setLoading(false);
     }
   };
-
+  
   const handleGoogleSignIn = async () => {
     setLoading(true);
     setError('');
     try {
       await signInWithGoogle();
+      await syncUser(); // <- ADD THIS LINE
       navigate('/');
     } catch (err) {
       setError('Google sign-in failed');
     } finally {
       setLoading(false);
     }
-  };
+  };  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-white flex items-center justify-center p-4 relative overflow-hidden">
@@ -234,6 +236,30 @@ const Login = () => {
       `}</style>
     </div>
   );
+};
+
+const syncUser = async () => {
+  const user = auth.currentUser;
+  if (!user) {
+    console.warn("No current user to sync.");
+    return;
+  }
+
+  const token = await user.getIdToken();
+  console.log("Syncing user to backend with token:", token);
+
+  const res = await fetch('http://localhost:3001/api/sync-user', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) {
+    console.error("Failed to sync user:", await res.json());
+  } else {
+    console.log("User synced successfully");
+  }
 };
 
 export default Login;
