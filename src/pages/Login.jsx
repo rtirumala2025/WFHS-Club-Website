@@ -77,10 +77,10 @@ const Login = () => {
             <Users size={32} className="text-white" />
           </div>
           <h1 className="text-4xl font-bold text-yellow-800 mb-2 drop-shadow-sm">
-            Welcome to
+            Welcome to the
           </h1>
           <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 bg-clip-text text-transparent">
-            <h2 className="text-3xl font-bold">WFHS Clubs</h2>
+            <h2 className="text-3xl font-bold">Forsyth County Club Website</h2>
           </div>
           <p className="text-yellow-600 mt-2 text-lg">Join the community!</p>
         </div>

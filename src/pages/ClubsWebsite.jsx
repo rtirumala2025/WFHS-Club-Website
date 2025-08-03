@@ -3128,30 +3128,32 @@ const ClubsWebsite = () => {
       <div className={`fixed inset-y-0 left-0 z-40 w-80 shadow-2xl transform transition-transform duration-300 ease-in-out ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       } bg-white pt-0`}>
-        {/* Sidebar Header - Updated to match login page aesthetic */}
-        <div className="bg-gradient-to-br from-blue-100 via-blue-50 to-white px-6 py-6 relative overflow-hidden">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-25 animate-blob animation-delay-2000"></div>
-          </div>
-          
-          <div className="flex items-center justify-between relative z-10">
-            <div>
-              <h1 className="text-xl font-bold text-yellow-800 drop-shadow-sm">WFHS Clubs</h1>
-              <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 bg-clip-text text-transparent">
-                <p className="text-sm font-medium mt-1">& Organizations</p>
-              </div>
-            </div>
-            {/* Close button for sidebar */}
-            <button
-              onClick={() => setSidebarOpen(false)}
-              className="p-2 rounded-lg bg-white border-2 border-black hover:bg-gray-50 transition-all duration-300"
-            >
-              <X size={20} className="text-black" />
-            </button>
-          </div>
+      {/* Sidebar Header - Updated to match login page aesthetic */}
+      <div className="bg-gradient-to-br from-blue-100 via-blue-50 to-white px-6 py-6 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+          <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-25 animate-blob animation-delay-2000"></div>
         </div>
+        
+        <div className="flex items-center justify-between relative z-10">
+          <div>
+            <h1 className="text-xl font-bold text-yellow-800 drop-shadow-sm">
+              {selectedSchool === 'Alliance Academy of Innovation' ? 'AAI' : selectedSchool.split(' ').map(word => word[0]).join('')} Clubs
+            </h1>
+            <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 bg-clip-text text-transparent">
+              <p className="text-sm font-medium mt-1">& Organizations</p>
+            </div>
+          </div>
+          {/* Close button for sidebar */}
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="p-2 rounded-lg bg-white border-2 border-black hover:bg-gray-50 transition-all duration-300"
+          >
+            <X size={20} className="text-black" />
+          </button>
+        </div>
+      </div>
         <div className="px-6 py-4 overflow-y-auto">
           <button
             onClick={handleHomeClick}
@@ -3296,14 +3298,16 @@ const ClubsWebsite = () => {
               )}
             </div>
           </div>
-          
+                    
           {/* Center - Title */}
           <div className="flex-1 text-center relative z-10 px-4">
             <button
               onClick={handleHomeClick}
               className="hover:opacity-80 transition-opacity cursor-pointer"
             >
-              <h1 className="text-2xl font-bold leading-tight text-yellow-800 drop-shadow-sm">The Club Network @ {selectedSchool.split(' ')[0]}</h1>
+              <h1 className="text-2xl font-bold leading-tight text-yellow-800 drop-shadow-sm">
+                The Club Network @ {selectedSchool === 'Alliance Academy of Innovation' ? 'AAI' : selectedSchool.split(' ').map(word => word[0]).join('')}
+              </h1>
               <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 bg-clip-text text-transparent">
                 <p className="text-sm font-medium mt-1 leading-snug">
                   Explore clubs and organizations at {selectedSchool}
