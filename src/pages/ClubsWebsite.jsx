@@ -447,7 +447,134 @@ const ClubsWebsite = () => {
           description: 'Form a community where students are supported in learning any language they want for personal growth and to help others.',
           sponsor: 'L. McGlumphy',
           category: 'Academic'
-        }     
+        },
+        {
+          id: 'creative-journalism-club',
+          name: 'Creative Journalism Club',
+          description: 'A student organization focused on developing and enhancing creative writing skills through various activities and collaborative efforts.',
+          sponsor: 'J. Bush',
+          category: 'Academic'
+        },
+        {
+          id: 'greek-club',
+          name: 'Greek Club',
+          description: 'Students learn Koine Greek through speaking and reading ancient texts for enjoyment.',
+          sponsor: 'M. Swindle',
+          category: 'Academic'
+        },
+        {
+          id: 'literary-team',
+          name: 'Literary Team',
+          description: 'School-sponsored co-curricular activity focused on literary competition and performance.',
+          sponsor: 'C. Pappas',
+          category: 'Academic'
+        },
+        {
+          id: 'drama-one-act-play',
+          name: 'Drama (One Act Play)',
+          description: 'School-sponsored co-curricular activity involving stage production and performance.',
+          sponsor: 'R. Stern',
+          category: 'Arts'
+        },
+        {
+          id: 'e-sports',
+          name: 'E-sports',
+          description: 'Competitive online gaming team for WFHS students.',
+          sponsor: 'C. Lyles',
+          category: 'Sports'
+        },
+        {
+          id: 'bass-fishing-team',
+          name: 'Bass Fishing Team',
+          description: 'Competitive school fishing team for WFHS.',
+          sponsor: 'E. Goff',
+          category: 'Sports'
+        },
+        {
+          id: 'mu-alpha-theta',
+          name: 'Mu Alpha Theta',
+          description: 'Mathematics Academic Honor Organization.',
+          sponsor: 'L. Brock',
+          category: 'Academic'
+        },
+        {
+          id: 'national-english-honor-society',
+          name: 'National English Honor Society',
+          description: 'Academic Honor Organization for English studies.',
+          sponsor: 'N. Souders, L. Smith',
+          category: 'Academic'
+        },
+        {
+          id: 'national-honor-society',
+          name: 'National Honor Society',
+          description: 'Academic Honor Organization based on scholarship, service, leadership, and character.',
+          sponsor: 'J. Wallace, J. Banks',
+          category: 'Academic'
+        },
+        {
+          id: 'national-art-honor-society',
+          name: 'National Art Honor Society',
+          description: 'Honor organization for outstanding high school art students.',
+          sponsor: 'A. Holland, A. Henke',
+          category: 'Arts'
+        },
+        {
+          id: 'national-latin-honor-society',
+          name: 'National Latin Honor Society',
+          description: 'Academic Honor Organization for Latin students.',
+          sponsor: 'D. Duncan',
+          category: 'Academic'
+        },
+        {
+          id: 'national-technical-honor-society',
+          name: 'National Technical Honor Society',
+          description: 'Career Tech Honor Society.',
+          sponsor: 'L. Schultheiss',
+          category: 'Career'
+        },
+        {
+          id: 'national-thespian-honor-society',
+          name: 'National Thespian Honor Society',
+          description: 'Academic Honor Organization recognizing student achievement in theater arts.',
+          sponsor: 'R. Stern',
+          category: 'Arts'
+        },
+        {
+          id: 'quill-and-scroll',
+          name: 'Quill & Scroll International Journalism Honor Society',
+          description: 'Honor Society for excellence in high school journalism.',
+          sponsor: 'M. Farry',
+          category: 'Academic'
+        },
+        {
+          id: 'rho-kappa',
+          name: 'Rho Kappa',
+          description: 'National Social Studies Honor Society.',
+          sponsor: 'S. Ewing',
+          category: 'Academic'
+        },
+        {
+          id: 'science-national-honor-society',
+          name: 'Science National Honor Society',
+          description: 'Encourages interest and excellence in science among high school students.',
+          sponsor: 'P. Valentino',
+          category: 'STEM'
+        },
+        {
+          id: 'spanish-national-honor-society',
+          name: 'Spanish National Honor Society',
+          description: 'Academic Honor Organization for excellence in Spanish language.',
+          sponsor: 'M. Wilson',
+          category: 'Academic'
+        },
+        {
+          id: 'tri-m-honor-society',
+          name: 'Tri-M National Music Honor Society',
+          description: 'Music Honor Organization recognizing musical and academic achievement.',
+          sponsor: 'C. Pappas',
+          category: 'Arts'
+        },
+    
       ],
     },
     {
@@ -913,361 +1040,466 @@ const ClubsWebsite = () => {
           description: 'Focuses on building professional STEM experience for youth through mentorship, workshops, and project-based learning.',
           sponsor: 'Ms. Roopa Yadavalli',
           category: 'STEM'
-        }      
+        },
+        {
+          id: 'beta-club',
+          name: 'Beta Club',
+          description: 'A leadership and service organization that recognizes high academic achievement and encourages community service.',
+          sponsor: 'TBD',
+          category: 'Leadership'
+        },
+        {
+          id: 'deca',
+          name: 'DECA',
+          description: 'Prepares emerging leaders and entrepreneurs in marketing, finance, hospitality, and management.',
+          sponsor: 'TBD',
+          category: 'Business'
+        },
+        {
+          id: 'fbla',
+          name: 'FBLA (Future Business Leaders of America)',
+          description: 'Encourages leadership, networking, and career development in business-related fields.',
+          sponsor: 'TBD',
+          category: 'Business'
+        },
+        {
+          id: 'key-club',
+          name: 'Key Club',
+          description: 'A student-led organization that teaches leadership through service to others.',
+          sponsor: 'TBD',
+          category: 'Service'
+        },
+        {
+          id: 'lhs-lit-mag',
+          name: 'Lambert Literary Magazine (The Lit)',
+          description: 'Publishes student literary and visual art submissions in an annual school magazine.',
+          sponsor: 'TBD',
+          category: 'Arts'
+        },
+        {
+          id: 'national-art-honor-society',
+          name: 'National Art Honor Society',
+          description: 'Recognizes students who demonstrate an outstanding ability and interest in art.',
+          sponsor: 'TBD',
+          category: 'Arts'
+        },
+        {
+          id: 'national-technical-honor-society',
+          name: 'National Technical Honor Society',
+          description: 'Honors student achievement in career and technical education programs.',
+          sponsor: 'TBD',
+          category: 'Career'
+        },
+        {
+          id: 'rho-kappa',
+          name: 'Rho Kappa (Social Studies Honor Society)',
+          description: 'Recognizes academic excellence in the field of Social Studies.',
+          sponsor: 'TBD',
+          category: 'Academic'
+        },
+        {
+          id: 'spanish-honor-society',
+          name: 'Spanish National Honor Society',
+          description: 'Recognizes high achievement in Spanish and promotes interest in Hispanic culture.',
+          sponsor: 'TBD',
+          category: 'Academic'
+        },
+        {
+          id: 'tri-m-honor-society',
+          name: 'Tri-M Music Honor Society',
+          description: 'Recognizes student musicians who show academic and musical excellence.',
+          sponsor: 'TBD',
+          category: 'Arts'
+        },
+        {
+          id: 'vex-robotics',
+          name: 'VEX Robotics',
+          description: 'Competitive robotics club focused on the VEX Robotics Design System and competitions.',
+          sponsor: 'TBD',
+          category: 'STEM'
+        },
+        {
+          id: 'unicef-club',
+          name: 'UNICEF Club',
+          description: 'Advocates for children\'s rights worldwide through education, fundraising, and service.',
+          sponsor: 'TBD',
+          category: 'Service'
+        },
+        {
+          id: 'red-cross-club',
+          name: 'American Red Cross Club',
+          description: 'Supports local and national Red Cross initiatives through service and fundraising.',
+          sponsor: 'TBD',
+          category: 'Service'
+        },
+        {
+          id: 'drug-awareness-council',
+          name: 'Forsyth County Drug Awareness Council',
+          description: 'Promotes drug prevention awareness and education through campaigns and peer leadership.',
+          sponsor: 'TBD',
+          category: 'Support'
+        },
+        {
+          id: 'american-cancer-society-club',
+          name: 'American Cancer Society Club',
+          description: 'Raises awareness and funds for cancer research and supports patients and families.',
+          sponsor: 'TBD',
+          category: 'Service'
+        },
       ],
     },
     {
       school: 'Forsyth Central High School',
       clubs: [
         {
-          "id": "academic-bowl",
-          "name": "Academic Bowl",
-          "description": "n/a",
-          "sponsor": "Cobb",
-          "category": "Academic"
+          id: "academic-bowl",
+          name: "Academic Bowl",
+          description: "n/a",
+          sponsor: "Cobb",
+          category: "Academic"
         },
         {
-          "id": "asl-american-sign-language-club",
-          "name": "ASL (American Sign Language) Club",
-          "description": "n/a",
-          "sponsor": "Kiser",
-          "category": "Cultural"
+          id: "asl-american-sign-language-club",
+          name: "ASL (American Sign Language) Club",
+          description: "n/a",
+          sponsor: "Kiser",
+          category: "Cultural"
         },
         {
-          "id": "astronomy-club",
-          "name": "Astronomy Club",
-          "description": "n/a",
-          "sponsor": "Ille",
-          "category": "STEM"
+          id: "astronomy-club",
+          name: "Astronomy Club",
+          description: "n/a",
+          sponsor: "Ille",
+          category: "STEM"
         },
         {
-          "id": "beta-club",
-          "name": "Beta Club",
-          "description": "n/a",
-          "sponsor": "Dean",
-          "category": "Academic"
+          id: "beta-club",
+          name: "Beta Club",
+          description: "n/a",
+          sponsor: "Dean",
+          category: "Academic"
         },
         {
-          "id": "black-student-union",
-          "name": "Black Student Union",
-          "description": "n/a",
-          "sponsor": "TBD",
-          "category": "Cultural"
+          id: "black-student-union",
+          name: "Black Student Union",
+          description: "n/a",
+          sponsor: "TBD",
+          category: "Cultural"
         },
         {
-          "id": "central-ambassadors",
-          "name": "Central Ambassadors",
-          "description": "n/a",
-          "sponsor": "Mosher",
-          "category": "Leadership"
+          id: "central-ambassadors",
+          name: "Central Ambassadors",
+          description: "n/a",
+          sponsor: "Mosher",
+          category: "Leadership"
         },
         {
-          "id": "chess-club",
-          "name": "Chess Club",
-          "description": "n/a",
-          "sponsor": "Teems",
-          "category": "Recreational"
+          id: "chess-club",
+          name: "Chess Club",
+          description: "n/a",
+          sponsor: "Teems",
+          category: "Recreational"
         },
         {
-          "id": "chinese-watercolor-club",
-          "name": "Chinese Watercolor Club",
-          "description": "n/a",
-          "sponsor": "Butterworth",
-          "category": "Arts"
+          id: "chinese-watercolor-club",
+          name: "Chinese Watercolor Club",
+          description: "n/a",
+          sponsor: "Butterworth",
+          category: "Arts"
         },
         {
-          "id": "coding-club",
-          "name": "Coding Club",
-          "description": "n/a",
-          "sponsor": "John",
-          "category": "STEM"
+          id: "coding-club",
+          name: "Coding Club",
+          description: "n/a",
+          sponsor: "John",
+          category: "STEM"
         },
         {
-          "id": "color-guard-winter-guard",
-          "name": "Color Guard & Winter Guard",
-          "description": "n/a",
-          "sponsor": "Rochester",
-          "category": "Arts"
+          id: "color-guard-winter-guard",
+          name: "Color Guard & Winter Guard",
+          description: "n/a",
+          sponsor: "Rochester",
+          category: "Arts"
         },
         {
-          "id": "cricket-club",
-          "name": "Cricket Club",
-          "description": "n/a",
-          "sponsor": "Ali",
-          "category": "Recreational"
+          id: "cricket-club",
+          name: "Cricket Club",
+          description: "n/a",
+          sponsor: "Ali",
+          category: "Recreational"
         },
         {
-          "id": "crochet-club",
-          "name": "Crochet Club",
-          "description": "n/a",
-          "sponsor": "Tisdale",
-          "category": "Arts"
+          id: "crochet-club",
+          name: "Crochet Club",
+          description: "n/a",
+          sponsor: "Tisdale",
+          category: "Arts"
         },
         {
-          "id": "debate-club",
-          "name": "Debate Club",
-          "description": "n/a",
-          "sponsor": "Morrison",
-          "category": "Academic"
+          id: "debate-club",
+          name: "Debate Club",
+          description: "n/a",
+          sponsor: "Morrison",
+          category: "Academic"
         },
         {
-          "id": "deca",
-          "name": "DECA",
-          "description": "n/a",
-          "sponsor": "Echols",
-          "category": "Business"
+          id: "deca",
+          name: "DECA",
+          description: "n/a",
+          sponsor: "Echols",
+          category: "Business"
         },
         {
-          "id": "dola",
-          "name": "DOLA",
-          "description": "n/a",
-          "sponsor": "Morris",
-          "category": "Support"
+          id: "dola",
+          name: "DOLA",
+          description: "n/a",
+          sponsor: "Morris",
+          category: "Support"
         },
         {
-          "id": "dungeons-disports",
-          "name": "Dungeons & Disports",
-          "description": "n/a",
-          "sponsor": "Shearer",
-          "category": "Recreational"
+          id: "dungeons-disports",
+          name: "Dungeons & Disports",
+          description: "n/a",
+          sponsor: "Shearer",
+          category: "Recreational"
         },
         {
-          "id": "eco-club",
-          "name": "Eco Club",
-          "description": "n/a",
-          "sponsor": "Fancher",
-          "category": "Service"
+          id: "eco-club",
+          name: "Eco Club",
+          description: "n/a",
+          sponsor: "Fancher",
+          category: "Service"
         },
         {
-          "id": "electric-vehicle-club",
-          "name": "Electric Vehicle Club",
-          "description": "n/a",
-          "sponsor": "Willingham",
-          "category": "STEM"
+          id: "electric-vehicle-club",
+          name: "Electric Vehicle Club",
+          description: "n/a",
+          sponsor: "Willingham",
+          category: "STEM"
         },
         {
-          "id": "engage-club",
-          "name": "Engage Club",
-          "description": "n/a",
-          "sponsor": "Delk",
-          "category": "Support"
+          id: "engage-club",
+          name: "Engage Club",
+          description: "n/a",
+          sponsor: "Delk",
+          category: "Support"
         },
         {
-          "id": "fbla",
-          "name": "FBLA",
-          "description": "n/a",
-          "sponsor": "Deininger",
-          "category": "Business"
+          id: "fbla",
+          name: "FBLA",
+          description: "n/a",
+          sponsor: "Deininger",
+          category: "Business"
         },
         {
-          "id": "fccla",
-          "name": "FCCLA",
-          "description": "n/a",
-          "sponsor": "Zaring",
-          "category": "Career"
+          id: "fccla",
+          name: "FCCLA",
+          description: "n/a",
+          sponsor: "Zaring",
+          category: "Career"
         },
         {
-          "id": "fellowship-of-christian-athletes",
-          "name": "Fellowship of Christian Athletes",
-          "description": "n/a",
-          "sponsor": "Hutchins",
-          "category": "Religious"
+          id: "fellowship-of-christian-athletes",
+          name: "Fellowship of Christian Athletes",
+          description: "n/a",
+          sponsor: "Hutchins",
+          category: "Religious"
         },
         {
-          "id": "film-club",
-          "name": "Film Club",
-          "description": "n/a",
-          "sponsor": "Harmon",
-          "category": "Arts"
+          id: "film-club",
+          name: "Film Club",
+          description: "n/a",
+          sponsor: "Harmon",
+          category: "Arts"
         },
         {
-          "id": "french-club",
-          "name": "French Club",
-          "description": "n/a",
-          "sponsor": "Clements",
-          "category": "Cultural"
+          id: "french-club",
+          name: "French Club",
+          description: "n/a",
+          sponsor: "Clements",
+          category: "Cultural"
         },
         {
-          "id": "future-healthcare-professionals",
-          "name": "Future Healthcare Professionals",
-          "description": "n/a",
-          "sponsor": "Howard",
-          "category": "Career"
+          id: "future-healthcare-professionals",
+          name: "Future Healthcare Professionals",
+          description: "n/a",
+          sponsor: "Howard",
+          category: "Career"
         },
         {
-          "id": "georgia-thespian-society",
-          "name": "Georgia Thespian Society",
-          "description": "n/a",
-          "sponsor": "Harmon",
-          "category": "Arts"
+          id: "georgia-thespian-society",
+          name: "Georgia Thespian Society",
+          description: "n/a",
+          sponsor: "Harmon",
+          category: "Arts"
         },
         {
-          "id": "girls-who-code",
-          "name": "Girls Who Code",
-          "description": "n/a",
-          "sponsor": "Jackson",
-          "category": "STEM"
+          id: "girls-who-code",
+          name: "Girls Who Code",
+          description: "n/a",
+          sponsor: "Jackson",
+          category: "STEM"
         },
         {
-          "id": "green-club",
-          "name": "Green Club",
-          "description": "n/a",
-          "sponsor": "Fancher",
-          "category": "Service"
+          id: "green-club",
+          name: "Green Club",
+          description: "n/a",
+          sponsor: "Fancher",
+          category: "Service"
         },
         {
-          "id": "gsu-scholars",
-          "name": "GSU Scholars",
-          "description": "n/a",
-          "sponsor": "Mosher",
-          "category": "Academic"
+          id: "gsu-scholars",
+          name: "GSU Scholars",
+          description: "n/a",
+          sponsor: "Mosher",
+          category: "Academic"
         },
         {
-          "id": "guitar-club",
-          "name": "Guitar Club",
-          "description": "n/a",
-          "sponsor": "Ayers",
-          "category": "Arts"
+          id: "guitar-club",
+          name: "Guitar Club",
+          description: "n/a",
+          sponsor: "Ayers",
+          category: "Arts"
         },
         {
-          "id": "hispanic-organization-promoting-education-hope",
-          "name": "Hispanic Organization Promoting Education (HOPE)",
-          "description": "n/a",
-          "sponsor": "Rendon",
-          "category": "Cultural"
+          id: "hispanic-organization-promoting-education-hope",
+          name: "Hispanic Organization Promoting Education (HOPE)",
+          description: "n/a",
+          sponsor: "Rendon",
+          category: "Cultural"
         },
         {
-          "id": "hosa",
-          "name": "HOSA",
-          "description": "n/a",
-          "sponsor": "Howard",
-          "category": "Career"
+          id: "hosa",
+          name: "HOSA",
+          description: "n/a",
+          sponsor: "Howard",
+          category: "Career"
         },
         {
-          "id": "international-club",
-          "name": "International Club",
-          "description": "n/a",
-          "sponsor": "Rendon",
-          "category": "Cultural"
+          id: "international-club",
+          name: "International Club",
+          description: "n/a",
+          sponsor: "Rendon",
+          category: "Cultural"
         },
         {
-          "id": "international-thespian-society",
-          "name": "International Thespian Society",
-          "description": "n/a",
-          "sponsor": "Harmon",
-          "category": "Arts"
+          id: "international-thespian-society",
+          name: "International Thespian Society",
+          description: "n/a",
+          sponsor: "Harmon",
+          category: "Arts"
         },
         {
-          "id": "japanese-club",
-          "name": "Japanese Club",
-          "description": "n/a",
-          "sponsor": "TBD",
-          "category": "Cultural"
+          id: "japanese-club",
+          name: "Japanese Club",
+          description: "n/a",
+          sponsor: "TBD",
+          category: "Cultural"
         },
         {
-          "id": "k-pop-club",
-          "name": "K-Pop Club",
-          "description": "n/a",
-          "sponsor": "Butterworth",
-          "category": "Cultural"
+          id: "k-pop-club",
+          name: "K-Pop Club",
+          description: "n/a",
+          sponsor: "Butterworth",
+          category: "Cultural"
         },
         {
-          "id": "key-club",
-          "name": "Key Club",
-          "description": "n/a",
-          "sponsor": "Parrish",
-          "category": "Service"
+          id: "key-club",
+          name: "Key Club",
+          description: "n/a",
+          sponsor: "Parrish",
+          category: "Service"
         },
         {
-          "id": "knitting-club",
-          "name": "Knitting Club",
-          "description": "n/a",
-          "sponsor": "Tisdale",
-          "category": "Arts"
+          id: "knitting-club",
+          name: "Knitting Club",
+          description: "n/a",
+          sponsor: "Tisdale",
+          category: "Arts"
         },
         {
-          "id": "latinos-in-stem",
-          "name": "Latinos in STEM",
-          "description": "n/a",
-          "sponsor": "Rendon",
-          "category": "STEM"
+          id: "latinos-in-stem",
+          name: "Latinos in STEM",
+          description: "n/a",
+          sponsor: "Rendon",
+          category: "STEM"
         },
         {
-          "id": "math-team",
-          "name": "Math Team",
-          "description": "n/a",
-          "sponsor": "Weber",
-          "category": "Academic"
+          id: "math-team",
+          name: "Math Team",
+          description: "n/a",
+          sponsor: "Weber",
+          category: "Academic"
         },
         {
-          "id": "mu-alpha-theta",
-          "name": "Mu Alpha Theta",
-          "description": "n/a",
-          "sponsor": "Weber",
-          "category": "Academic"
+          id: "mu-alpha-theta",
+          name: "Mu Alpha Theta",
+          description: "n/a",
+          sponsor: "Weber",
+          category: "Academic"
         },
         {
-          "id": "muslim-student-association",
-          "name": "Muslim Student Association",
-          "description": "n/a",
-          "sponsor": "Rendon",
-          "category": "Religious"
+          id: "muslim-student-association",
+          name: "Muslim Student Association",
+          description: "n/a",
+          sponsor: "Rendon",
+          category: "Religious"
         },
         {
-          "id": "national-art-honor-society",
-          "name": "National Art Honor Society",
-          "description": "n/a",
-          "sponsor": "Butterworth",
-          "category": "Arts"
+          id: "national-art-honor-society",
+          name: "National Art Honor Society",
+          description: "n/a",
+          sponsor: "Butterworth",
+          category: "Arts"
         },
         {
-          "id": "national-honor-society",
-          "name": "National Honor Society",
-          "description": "n/a",
-          "sponsor": "Mosher",
-          "category": "Academic"
+          id: "national-honor-society",
+          name: "National Honor Society",
+          description: "n/a",
+          sponsor: "Mosher",
+          category: "Academic"
         },
         {
-          "id": "onramps",
-          "name": "OnRamps",
-          "description": "n/a",
-          "sponsor": "Zaring",
-          "category": "Support"
+          id: "onramps",
+          name: "OnRamps",
+          description: "n/a",
+          sponsor: "Zaring",
+          category: "Support"
         },
         {
-          "id": "open-mic-club",
-          "name": "Open Mic Club",
-          "description": "n/a",
-          "sponsor": "TBD",
-          "category": "Arts"
+          id: "open-mic-club",
+          name: "Open Mic Club",
+          description: "n/a",
+          sponsor: "TBD",
+          category: "Arts"
         },
         {
-          "id": "project-life",
-          "name": "Project Life",
-          "description": "n/a",
-          "sponsor": "Delk",
-          "category": "Service"
+          id: "project-life",
+          name: "Project Life",
+          description: "n/a",
+          sponsor: "Delk",
+          category: "Service"
         },
         {
-          "id": "robotics-team",
-          "name": "Robotics Team",
-          "description": "n/a",
-          "sponsor": "John",
-          "category": "STEM"
+          id: "robotics-team",
+          name: "Robotics Team",
+          description: "n/a",
+          sponsor: "John",
+          category: "STEM"
         },
         {
-          "id": "scholastic-bowl",
-          "name": "Scholastic Bowl",
-          "description": "n/a",
-          "sponsor": "Mosher",
-          "category": "Academic"
+          id: "scholastic-bowl",
+          name: "Scholastic Bowl",
+          description: "n/a",
+          sponsor: "Mosher",
+          category: "Academic"
         },
         {
-          "id": "science-club",
-          "name": "Science Club",
-          "description": "n/a",
-          "sponsor": "Ille",
-          "category": "STEM"
+          id: "science-club",
+          name: "Science Club",
+          description: "n/a",
+          sponsor: "Ille",
+          category: "STEM"
         },
         {
           id: "skills-usa-club",
@@ -1338,7 +1570,154 @@ const ClubsWebsite = () => {
           description: "n/a",
           sponsor: "Brown",
           category: "STEM"
-        }        
+        },
+        {
+        id: "la-familia-hispana",
+        name: "La Familia Hispana",
+        description: "A student organization that celebrates Hispanic heritage through cultural events, language support, and community outreach.",
+        sponsor: "Cardoso",
+        category: "Cultural"
+      },
+      {
+        id: "ffa",
+        name: "FFA",
+        description: "Future Farmers of America: empowers students with leadership and technical skills in agriculture and related sciences.",
+        sponsor: "Dowdy",
+        category: "Career"
+      },
+      {
+        id: "food4lives",
+        name: "Food4Lives",
+        description: "Student-led club organizing ongoing food drives and meal initiatives to fight local hunger.",
+        sponsor: "Neal",
+        category: "Service"
+      },
+      {
+        id: "girl-up-club",
+        name: "Girl Up Club",
+        description: "Advocates for girls’ empowerment globally through fundraising campaigns and awareness events.",
+        sponsor: "Valadez",
+        category: "Leadership"
+      },
+      {
+        id: "indoor-drumline-winds-ensemble",
+        name: "Indoor Drumline/Winds Ensemble",
+        description: "Performance ensemble focused on percussion and wind competition music and design.",
+        sponsor: "Tucker",
+        category: "Arts"
+      },
+      {
+        id: "interact-club",
+        name: "Interact Club",
+        description: "Rotary-sponsored youth service organization promoting leadership through local community projects.",
+        sponsor: "Brasher",
+        category: "Service"
+      },
+      {
+        id: "jewish-student-union",
+        name: "Jewish Student Union",
+        description: "A community for students to explore Jewish culture through events, dialogue, and service.",
+        sponsor: "Thompson/Corin",
+        category: "Religious"
+      },
+      {
+        id: "marching-band",
+        name: "Marching Band",
+        description: "Instrumental ensemble performing at school events, parades, and competitions throughout the year.",
+        sponsor: "Tucker/Rochester",
+        category: "Arts"
+      },
+      {
+        id: "mock-trial-team",
+        name: "Mock Trial Team",
+        description: "Team practices courtroom skills and competes in simulated trials at regional/state levels.",
+        sponsor: "TBD",
+        category: "Academic"
+      },
+      {
+        id: "model-un",
+        name: "Model UN",
+        description: "Participates in United Nations simulation conferences to advocate policy positions and build diplomacy skills.",
+        sponsor: "Henderson",
+        category: "Academic"
+      },
+      {
+        id: "multicultural-student-union",
+        name: "Multicultural Student Union",
+        description: "Promotes cultural diversity via events and inclusion initiatives across various student groups.",
+        sponsor: "Srinivasan",
+        category: "Cultural"
+      },
+      {
+        id: "national-science-honor-society",
+        name: "National Science Honor Society",
+        description: "Honors excellence in science; members engage in tutoring, outreach, and STEM events.",
+        sponsor: "TBD",
+        category: "STEM"
+      },
+      {
+        id: "national-spanish-honor-society",
+        name: "National Spanish Honor Society",
+        description: "Recognizes high achievement in Spanish; promotes language and cultural awareness activities.",
+        sponsor: "TBD",
+        category: "Cultural"
+      },
+      {
+        id: "national-technical-honor-society",
+        name: "National Technical Honor Society",
+        description: "Celebrates excellence in technical and career education; members mentor peers and participate in service.",
+        sponsor: "Feicht",
+        category: "Career"
+      },
+      {
+        id: "photography-drone-club",
+        name: "Photography & Drone Club",
+        description: "Explores photography and drone technology with hands-on practice and media production projects.",
+        sponsor: "Henderson",
+        category: "Arts"
+      },
+      {
+        id: "physics-club",
+        name: "Physics Club",
+        description: "Engages students in physics-based experiments, competitions, and STEM outreach activities.",
+        sponsor: "TBD",
+        category: "STEM"
+      },
+      {
+        id: "political-discourse-club",
+        name: "Political Discourse Club",
+        description: "Forums for students to discuss current events, public policy, debate, and civic engagement.",
+        sponsor: "Henderson/Stern",
+        category: "Academic"
+      },
+      {
+        id: "sat-club",
+        name: "SAT Club",
+        description: "Structured study group helping students prepare for the SAT through peer tutoring and practice tests.",
+        sponsor: "Ille",
+        category: "Academic"
+      },
+      {
+        id: "science-olympiad",
+        name: "Science Olympiad",
+        description: "Competitive club practicing and competing in science and engineering events at regional/state levels.",
+        sponsor: "Kufrovich",
+        category: "STEM"
+      },
+      {
+        id: "self-improvement-club",
+        name: "Self-Improvement Club",
+        description: "Focuses on personal growth and wellness through goal-setting, workshops, and peer support.",
+        sponsor: "DuVal",
+        category: "Support"
+      },
+      {
+        id: "seva",
+        name: "SEVA",
+        description: "Volunteer club based on community service initiatives inspired by global youth philanthropy.",
+        sponsor: "Srinivasan",
+        category: "Service"
+      },       
       ],
     },
     {
@@ -2641,308 +3020,241 @@ const ClubsWebsite = () => {
     },
     {
       school: 'Alliance Academy for Innovation',
-      clubs: [
-          
+      clubs: [      
     {
-      id: 'biology-olympiad',
-      name: 'Biology Olympiad - Science National Honor Society(SNHS)',
-      description: 'No description provided.',
-      sponsor: 'Tiffany Aikens',
-      category: 'Academic'
-    },
-
-{
-      id: 'skills-usa',
-      name: 'Skills USA',
-      description: 'No description provided.',
-      sponsor: 'Mike Arguel',
-      category: 'Career'
-    },
-    {
-      id: 'quill--scroll',
-      name: 'Quill & Scroll',
-      description: 'No description provided.',
-      sponsor: 'Lainey Bradley',
-      category: 'Arts'
-    },
-    {
-      id: 'ecoalliance',
-      name: 'EcoAlliance',
-      description: 'No description provided.',
-      sponsor: 'Lainey Bradley',
-      category: 'Uncategorized'
-    },
-    {
-      id: 'national-english-honor-society',
-      name: 'National English Honor Society',
-      description: 'No description provided.',
-      sponsor: 'Chandler Burnell',
-      category: 'Uncategorized'
-    },
-    {
-      id: 'vt-seva',
-      name: 'VT Seva',
-      description: 'No description provided.',
-      sponsor: 'Chandler Burnell',
-      category: 'Uncategorized'
-    },
-    {
-      id: 'alliance-christian-fellowship',
-      name: 'Alliance Christian Fellowship',
-      description: 'No description provided.',
-      sponsor: 'Jennifer Burnham',
-      category: 'Religious'
-    },
-    {
-      id: 'oratorical-contest',
-      name: 'Oratorical Contest',
-      description: 'No description provided.',
-      sponsor: 'Candi Clark',
-      category: 'Academic'
-    },
-    {
-      id: 'forthekids',
-      name: 'ForTheKids',
-      description: 'No description provided.',
-      sponsor: 'Candi Clark',
-      category: 'Service'
-    },
-{
-      id: 'nhs',
-      name: 'NHS',
-      description: 'No description provided.',
-      sponsor: 'Katie Cosgrove',
-      category: 'Academic'
-    },
-    {
-      id: 'color-me-blue',
-      name: 'Color me Blue',
-      description: 'No description provided.',
-      sponsor: 'Katie Cosgrove',
-      category: 'Uncategorized'
-    },
-    {
-      id: 'tsa',
-      name: 'TSA',
-      description: 'No description provided.',
-      sponsor: 'Jennifer Crowder',
-      category: 'STEM'
-    },
-    {
-      id: 'vex-robotics',
-      name: 'Vex Robotics',
-      description: 'No description provided.',
-      sponsor: 'Jennifer Crowder',
-      category: 'Sports'
-    },
-    {
-      id: 'cyber-avengers',
-      name: 'Cyber Avengers',
-      description: 'No description provided.',
-      sponsor: 'Jennifer Crowder',
-      category: 'Sports'
-    },
-    {
-      id: 'aai-grils-who-code',
-      name: 'AAI Grils Who Code',
-      description: 'No description provided.',
-      sponsor: 'Jennifer Crowder',
-      category: 'STEM'
-    },
-    {
-      id: 'flag-corp',
-      name: 'Flag Corp',
-      description: 'No description provided.',
-      sponsor: 'Nick Crowder',
-      category: 'Recreational'
-    },
-    {
-      id: 'science-olympiad',
-      name: 'Science Olympiad',
-      description: 'No description provided.',
-      sponsor: 'Brad Davis',
-      category: 'STEM'
-    },
-    {
-      id: 'physics-olympiad',
-      name: 'Physics Olympiad',
-      description: 'No description provided.',
-      sponsor: 'Brad Davis',
-      category: 'STEM'
-    },
-      ],
-    },
-    {
-      school: 'East Forsyth High School',
-      clubs: [
-        {
-          id: 'asl-club',
-          name: 'American Sign Language Club',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Cultural'
-        },
-        {
-          id: 'art-club',
-          name: 'Art Club',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Arts'
-        },
-        {
-          id: 'beta-club',
-          name: 'Beta Club',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Leadership'
-        },
-        {
-          id: 'chess-club',
-          name: 'Chess',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Recreation'
-        },
-        {
-          id: 'color-guard',
-          name: 'Color Guard',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Arts'
-        },
-        {
-          id: 'debate-team',
-          name: 'Debate Team',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Academic'
-        },
-        {
-          id: 'esports',
-          name: 'ESports',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'STEM'
-        },
-        {
-          id: 'fca',
-          name: 'Fellowship of Christian Athletes',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Religious'
-        },
-        {
-          id: 'gsa',
-          name: 'Gay Straight Alliance',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Support'
-        },
-        {
-          id: 'international-club',
-          name: 'International Club',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Cultural'
-        },
-        {
-          id: 'latinos-at-east',
-          name: 'Latinos at East',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Cultural'
-        },
-        {
-          id: 'literary-team',
-          name: 'Literary Team',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Academic'
-        },
-        {
-          id: 'math-team',
-          name: 'Math Team',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Academic'
-        },
-        {
-          id: 'mock-trial',
-          name: 'Mock Trial',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Academic'
-        },
-        {
-          id: 'naacp',
-          name: 'NAACP',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Cultural'
-        },
-        {
-          id: 'robotics-club',
-          name: 'Robotics Club',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'STEM'
-        },
-        {
-          id: 'science-ambassadors',
-          name: 'Science Ambassadors',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'STEM'
-        },
-        {
-          id: 'science-olympiad',
-          name: 'Science Olympiad',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'STEM'
-        },
-        {
-          id: 'student-council',
-          name: 'Student Council',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Leadership'
-        },
-        {
-          id: 'deca',
-          name: 'DECA',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Business'
-        },
-        {
-          id: 'fbla',
-          name: 'FBLA',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Business'
-        },
-        {
-          id: 'skillsusa',
-          name: 'SkillsUSA',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Career'
-        },
-        {
-          id: 'tsa',
-          name: 'Technology Student Association',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'STEM'
-        },
-        {
-          id: 'fccla',
-          name: 'FCCLA',
-          description: 'n/a',
-          sponsor: 'n/a',
-          category: 'Career'
-        }      
+    id: 'biology-olympiad',
+    name: 'Biology Olympiad - Science National Honor Society(SNHS)',
+    description: 'A competitive academic team that prepares students for state and national biology competitions. Members study advanced topics in molecular biology, genetics, anatomy, ecology, and evolution. The club combines elements of the Science National Honor Society, promoting scientific excellence and community service through biology-related outreach programs.',
+    sponsor: 'Tiffany Aikens',
+    category: 'Academic',
+    meetingFrequency: 'Weekly',
+    meetingDay: 'Tuesdays after school',
+    requirements: 'Minimum B+ in Biology, teacher recommendation',
+    activities: ['Competition preparation', 'Lab experiments', 'Science fair projects', 'Peer tutoring', 'Community science education'],
+    commitment: 'High - requires study time and competition participation',
+    benefits: ['College application enhancement', 'Scholarship opportunities', 'Advanced biology knowledge', 'Leadership development']
+  },
+  {
+    id: 'skills-usa',
+    name: 'Skills USA',
+    description: 'A national organization that helps students develop career and technical skills through hands-on projects, competitions, and leadership activities. Members participate in skill-based competitions ranging from automotive technology to culinary arts, preparing them for careers in skilled trades and technical fields.',
+    sponsor: 'Mike Arguel',
+    category: 'Career',
+    meetingFrequency: 'Bi-weekly',
+    meetingDay: 'Thursdays after school',
+    requirements: 'Enrollment in a CTE program preferred',
+    activities: ['Skills competitions', 'Career exploration', 'Industry guest speakers', 'Job shadowing', 'Professional development workshops'],
+    commitment: 'Medium - flexible based on competition participation',
+    benefits: ['Career readiness', 'Industry connections', 'Scholarship opportunities', 'Professional skills development']
+  },
+  {
+    id: 'quill--scroll',
+    name: 'Quill & Scroll',
+    description: 'An international honor society for high school journalists, recognizing excellence in writing, editing, and media production. Members work on school publications, develop journalism skills, and promote ethical reporting standards while contributing to school media outlets.',
+    sponsor: 'Lainey Bradley',
+    category: 'Arts',
+    meetingFrequency: 'Weekly',
+    meetingDay: 'Wednesdays after school',
+    requirements: 'Strong writing portfolio, involvement in school media',
+    activities: ['Newspaper/yearbook production', 'Writing workshops', 'Media ethics discussions', 'Interview techniques', 'Digital media creation'],
+    commitment: 'Medium to High - regular publication deadlines',
+    benefits: ['Journalism credentials', 'Writing portfolio development', 'Media literacy', 'College journalism preparation']
+  },
+  {
+    id: 'ecoalliance',
+    name: 'EcoAlliance',
+    description: 'An environmental advocacy club focused on promoting sustainability practices within the school and local community. Members organize recycling programs, environmental awareness campaigns, and outdoor conservation projects while educating peers about climate change and ecological responsibility.',
+    sponsor: 'Lainey Bradley',
+    category: 'Environmental',
+    meetingFrequency: 'Bi-weekly',
+    meetingDay: 'Mondays after school',
+    requirements: 'Interest in environmental issues',
+    activities: ['Recycling programs', 'School garden maintenance', 'Environmental education presentations', 'Community cleanup events', 'Sustainability initiatives'],
+    commitment: 'Medium - some weekend activities',
+    benefits: ['Environmental leadership', 'Community service hours', 'Awareness of sustainability practices', 'Outdoor experience']
+  },
+  {
+    id: 'national-english-honor-society',
+    name: 'National English Honor Society',
+    description: 'A prestigious honor society recognizing students who demonstrate excellence in English language arts. Members participate in literary activities, tutor peers, organize reading events, and promote literacy within the school and community through various service projects.',
+    sponsor: 'Chandler Burnell',
+    category: 'Academic',
+    meetingFrequency: 'Monthly',
+    meetingDay: 'First Friday of each month',
+    requirements: 'Minimum 3.5 GPA in English, teacher recommendation',
+    activities: ['Peer tutoring', 'Literary magazine production', 'Reading programs for elementary students', 'Book drives', 'Poetry contests'],
+    commitment: 'Medium - service hour requirements',
+    benefits: ['Academic recognition', 'College application enhancement', 'Leadership opportunities', 'Literary skills development']
+  },
+  {
+    id: 'vt-seva',
+    name: 'VT Seva',
+    description: 'A service-oriented club focused on community outreach and volunteer work, with "Seva" meaning selfless service. Members organize and participate in various charitable activities, food drives, and community service projects to support local organizations and those in need.',
+    sponsor: 'Chandler Burnell',
+    category: 'Service',
+    meetingFrequency: 'Bi-weekly',
+    meetingDay: 'Thursdays after school',
+    requirements: 'Commitment to community service',
+    activities: ['Food drives', 'Charity fundraisers', 'Volunteer coordination', 'Community partnerships', 'Service project planning'],
+    commitment: 'Medium - regular service commitments',
+    benefits: ['Community service hours', 'Leadership development', 'Civic engagement', 'Social awareness']
+  },
+  {
+    id: 'alliance-christian-fellowship',
+    name: 'Alliance Christian Fellowship',
+    description: 'A faith-based club that provides a supportive community for Christian students to grow spiritually, study scripture, and engage in fellowship activities. The club welcomes students of all backgrounds interested in exploring Christian faith and values through discussion, service, and worship.',
+    sponsor: 'Jennifer Burnham',
+    category: 'Religious',
+    meetingFrequency: 'Weekly',
+    meetingDay: 'Wednesdays before school',
+    requirements: 'Open to all students interested in Christian fellowship',
+    activities: ['Bible study', 'Prayer groups', 'Community service projects', 'Fellowship events', 'Mission trip fundraising'],
+    commitment: 'Low to Medium - flexible participation',
+    benefits: ['Spiritual growth', 'Community service opportunities', 'Peer support', 'Faith exploration']
+  },
+  {
+    id: 'oratorical-contest',
+    name: 'Oratorical Contest',
+    description: 'A competitive speech club that prepares students for local, regional, and state oratorical competitions. Members develop public speaking skills, research and write speeches on various topics, and compete in formal speaking contests that emphasize rhetoric, delivery, and persuasive communication.',
+    sponsor: 'Candi Clark',
+    category: 'Academic',
+    meetingFrequency: 'Weekly during competition season',
+    meetingDay: 'Tuesdays and Thursdays after school',
+    requirements: 'Interest in public speaking and competition',
+    activities: ['Speech writing workshops', 'Competitive tournaments', 'Public speaking practice', 'Research and citation training', 'Presentation skills development'],
+    commitment: 'High during competition season',
+    benefits: ['Public speaking confidence', 'Research skills', 'Competition experience', 'Communication skills']
+  },
+  {
+    id: 'forthekids',
+    name: 'ForTheKids',
+    description: 'A service club dedicated to supporting children in need through fundraising, mentoring, and volunteer activities. Members organize events and programs that benefit local elementary schools, children\'s hospitals, and youth organizations, focusing on making a positive impact in young lives.',
+    sponsor: 'Candi Clark',
+    category: 'Service',
+    meetingFrequency: 'Bi-weekly',
+    meetingDay: 'Fridays after school',
+    requirements: 'Passion for working with children',
+    activities: ['Fundraising events', 'Elementary school mentoring', 'Toy drives during holidays', 'Reading programs', 'Children\'s hospital visits'],
+    commitment: 'Medium - some weekend events',
+    benefits: ['Community service hours', 'Working with children experience', 'Event planning skills', 'Social impact']
+  },
+  {
+    id: 'nhs',
+    name: 'NHS',
+    description: 'The National Honor Society recognizes outstanding high school students who demonstrate excellence in scholarship, service, leadership, and character. Members maintain high academic standards while completing community service projects and serving as role models for their peers.',
+    sponsor: 'Katie Cosgrove',
+    category: 'Academic',
+    meetingFrequency: 'Monthly',
+    meetingDay: 'Second Tuesday of each month',
+    requirements: 'Minimum 3.5 cumulative GPA, application process',
+    activities: ['Community service projects', 'Peer tutoring', 'School event volunteering', 'Fundraising for charities', 'Academic recognition ceremonies'],
+    commitment: 'Medium - service hour requirements',
+    benefits: ['Academic recognition', 'College application enhancement', 'Leadership opportunities', 'Service experience']
+  },
+  {
+    id: 'color-me-blue',
+    name: 'Color me Blue',
+    description: 'A school spirit and pride club focused on promoting positive school culture and supporting athletic teams and school events. Members organize pep rallies, create school decorations, coordinate themed dress-up days, and work to build community spirit throughout the school year.',
+    sponsor: 'Katie Cosgrove',
+    category: 'Spirit',
+    meetingFrequency: 'Weekly during fall and winter',
+    meetingDay: 'Mondays after school',
+    requirements: 'Enthusiasm for school spirit activities',
+    activities: ['Pep rally organization', 'Game day decorations', 'Spirit week planning', 'Athletic team support', 'School event promotion'],
+    commitment: 'Medium to High during sports seasons',
+    benefits: ['School leadership', 'Event planning experience', 'Team building', 'School community involvement']
+  },
+  {
+    id: 'tsa',
+    name: 'TSA',
+    description: 'Technology Student Association is a national organization for students interested in STEM fields. Members compete in technology-related events, participate in engineering challenges, and develop skills in areas such as robotics, computer programming, biotechnology, and architectural design.',
+    sponsor: 'Jennifer Crowder',
+    category: 'STEM',
+    meetingFrequency: 'Weekly',
+    meetingDay: 'Wednesdays after school',
+    requirements: 'Interest in technology and engineering',
+    activities: ['Engineering competitions', 'Technology projects', 'Programming challenges', 'Design competitions', 'STEM conferences'],
+    commitment: 'High - project development and competitions',
+    benefits: ['STEM skill development', 'Competition experience', 'College preparation', 'Technical portfolio building']
+  },
+  {
+    id: 'vex-robotics',
+    name: 'Vex Robotics',
+    description: 'A competitive robotics team that designs, builds, and programs robots for VEX Robotics competitions. Members learn engineering principles, programming skills, and teamwork while competing against other schools in regional and state tournaments throughout the year.',
+    sponsor: 'Jennifer Crowder',
+    category: 'STEM',
+    meetingFrequency: 'Daily during build season, 3x weekly off-season',
+    meetingDay: 'Monday, Wednesday, Friday after school',
+    requirements: 'Commitment to team participation',
+    activities: ['Robot design and construction', 'Programming and testing', 'Competition tournaments', 'Engineering notebook documentation', 'Team fundraising'],
+    commitment: 'Very High - intensive during competition season',
+    benefits: ['Engineering experience', 'Programming skills', 'Teamwork and leadership', 'Competition awards and recognition']
+  },
+  {
+    id: 'cyber-avengers',
+    name: 'Cyber Avengers',
+    description: 'A cybersecurity-focused club that teaches students about digital security, ethical hacking, and cyber defense strategies. Members participate in cybersecurity competitions, learn about network security, and develop skills to protect digital systems while promoting responsible technology use.',
+    sponsor: 'Jennifer Crowder',
+    category: 'STEM',
+    meetingFrequency: 'Twice weekly',
+    meetingDay: 'Tuesdays and Thursdays after school',
+    requirements: 'Basic computer skills, interest in cybersecurity',
+    activities: ['Capture the Flag competitions', 'Ethical hacking workshops', 'Network security labs', 'Digital forensics projects', 'Cybersecurity awareness campaigns'],
+    commitment: 'Medium to High - competition preparation',
+    benefits: ['Cybersecurity skills', 'Ethical hacking knowledge', 'Competition experience', 'Career preparation in IT security']
+  },
+  {
+    id: 'aai-grils-who-code',
+    name: 'AAI Grils Who Code',
+    description: 'A chapter of the national Girls Who Code organization focused on closing the gender gap in technology. The club teaches programming skills, web development, and computer science concepts while creating a supportive environment for female students interested in technology careers.',
+    sponsor: 'Jennifer Crowder',
+    category: 'STEM',
+    meetingFrequency: 'Weekly',
+    meetingDay: 'Fridays after school',
+    requirements: 'Open to all students interested in coding',
+    activities: ['Programming workshops', 'Web development projects', 'Tech industry guest speakers', 'Coding competitions', 'Computer science college prep'],
+    commitment: 'Medium - project-based learning',
+    benefits: ['Programming skills', 'Tech industry exposure', 'College CS preparation', 'Supportive peer network']
+  },
+  {
+    id: 'flag-corp',
+    name: 'Flag Corp',
+    description: 'A performance group that combines dance, choreography, and flag spinning techniques for athletic events, competitions, and school performances. Members develop coordination, rhythm, and performance skills while supporting school spirit at football games and other sporting events.',
+    sponsor: 'Nick Crowder',
+    category: 'Recreational',
+    meetingFrequency: '3-4 times weekly during season',
+    meetingDay: 'Monday, Wednesday, Thursday after school',
+    requirements: 'Basic coordination and willingness to perform',
+    activities: ['Choreographed performances', 'Football game entertainment', 'Competition routines', 'Flag spinning techniques', 'Dance and movement training'],
+    commitment: 'High during performance season',
+    benefits: ['Performance experience', 'Physical fitness', 'Team coordination', 'School spirit participation']
+  },
+  {
+    id: 'science-olympiad',
+    name: 'Science Olympiad',
+    description: 'A competitive academic team that prepares for state and national Science Olympiad tournaments. Members study various scientific disciplines and compete in events ranging from astronomy and chemistry to engineering design challenges and laboratory investigations.',
+    sponsor: 'Brad Davis',
+    category: 'STEM',
+    meetingFrequency: 'Twice weekly',
+    meetingDay: 'Tuesdays and Thursdays after school',
+    requirements: 'Strong science background, commitment to competition',
+    activities: ['Competition preparation', 'Laboratory experiments', 'Engineering challenges', 'Scientific research', 'Team building exercises'],
+    commitment: 'High - intensive study and competition preparation',
+    benefits: ['Advanced science knowledge', 'Competition experience', 'College science preparation', 'Team collaboration skills']
+  },
+  {
+    id: 'physics-olympiad',
+    name: 'Physics Olympiad',
+    description: 'An elite academic competition team that prepares students for national and international physics competitions. Members tackle advanced physics problems, conduct experiments, and develop deep understanding of theoretical and applied physics concepts beyond the regular curriculum.',
+    sponsor: 'Brad Davis',
+    category: 'STEM',
+    meetingFrequency: 'Weekly',
+    meetingDay: 'Fridays after school',
+    requirements: 'Strong physics and mathematics background',
+    activities: ['Advanced problem solving', 'Experimental physics labs', 'Competition preparation', 'Physics research projects', 'Peer collaboration'],
+    commitment: 'High - requires significant study time',
+    benefits: ['Advanced physics knowledge', 'Problem-solving skills', 'Competition recognition', 'College physics preparation']
+  },
       ],
     }
   ]
@@ -3085,42 +3397,216 @@ const ClubsWebsite = () => {
   );
 
   const ClubDetails = ({ club, categoryColors, onBack }) => (
-    <div>
-      <button
-        onClick={onBack}
-        className="mb-6 flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-      >
-        <ChevronRight size={20} className="rotate-180 mr-2" />
-        Club Section Page
-      </button>
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-        <div className="p-8">
-          <div className="flex items-start justify-between mb-6">
-            <h1 className="text-3xl font-bold text-gray-900">{club.name}</h1>
-            <span className={`px-4 py-2 rounded-full text-sm font-medium ${categoryColors[club.category]}`}>
-              {club.category}
-            </span>
-          </div>
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-3">Description</h2>
-              <p className="text-gray-700 leading-relaxed">{club.description}</p>
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-3">Sponsor</h2>
-              <p className="text-gray-700">{club.sponsor}</p>
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-3">Category</h2>
-              <span className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${categoryColors[club.category]}`}>
+  <div className="max-w-6xl mx-auto">
+    {/* Back Navigation */}
+    <button
+      onClick={onBack}
+      className="mb-6 flex items-center text-blue-600 hover:text-blue-800 transition-all duration-200 hover:translate-x-1"
+    >
+      <ChevronRight size={20} className="rotate-180 mr-2" />
+      <span className="font-medium">Back to Clubs</span>
+    </button>
+
+    {/* Hero Section */}
+    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl shadow-xl mb-8 overflow-hidden relative">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute -top-10 -right-10 w-32 h-32 bg-white rounded-full mix-blend-overlay animate-pulse"></div>
+        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white rounded-full mix-blend-overlay animate-pulse animation-delay-1000"></div>
+      </div>
+      
+      <div className="relative z-10 p-8 md:p-12 text-white">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+              {club.name}
+            </h1>
+            <div className="flex flex-wrap items-center gap-4">
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold bg-white/20 backdrop-blur-sm border border-white/30`}>
                 {club.category}
               </span>
+              <div className="flex items-center text-white/90">
+                <Users size={18} className="mr-2" />
+                <span className="text-sm font-medium">Join Today!</span>
+              </div>
             </div>
+          </div>
+          
+          {/* Quick Action Buttons */}
+          <div className="flex flex-col gap-3 min-w-[200px]">
+            <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105">
+              Join Club
+            </button>
+            <button className="bg-transparent hover:bg-white/10 border-2 border-white/50 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105">
+              Contact Sponsor
+            </button>
           </div>
         </div>
       </div>
     </div>
-  );
+
+    {/* Main Content Grid */}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {/* Left Column - Main Info */}
+      <div className="lg:col-span-2 space-y-8">
+        {/* About Section */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-gray-50 to-blue-50 px-8 py-6 border-b border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                <Users size={18} className="text-blue-600" />
+              </div>
+              About This Club
+            </h2>
+          </div>
+          <div className="p-8">
+            <p className="text-gray-700 leading-relaxed text-lg">
+              {club.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Activities & Highlights Section */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 px-8 py-6 border-b border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                <BarChart3 size={18} className="text-green-600" />
+              </div>
+              What We Do
+            </h2>
+          </div>
+          <div className="p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100">
+                <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full mr-2"></div>
+                  Regular Meetings
+                </h3>
+                <p className="text-gray-600 text-sm">Connect with fellow members and plan activities</p>
+              </div>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
+                <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <div className="w-6 h-6 bg-purple-500 rounded-full mr-2"></div>
+                  Special Events
+                </h3>
+                <p className="text-gray-600 text-sm">Participate in competitions and showcases</p>
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100">
+                <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <div className="w-6 h-6 bg-green-500 rounded-full mr-2"></div>
+                  Community Service
+                </h3>
+                <p className="text-gray-600 text-sm">Make a positive impact in our community</p>
+              </div>
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-100">
+                <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full mr-2"></div>
+                  Skill Building
+                </h3>
+                <p className="text-gray-600 text-sm">Develop leadership and specialized skills</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Column - Quick Info */}
+      <div className="space-y-6">
+        {/* Contact Info Card */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-yellow-50 to-orange-50 px-6 py-4 border-b border-gray-100">
+            <h3 className="text-lg font-bold text-gray-900">Contact Information</h3>
+          </div>
+          <div className="p-6 space-y-4">
+            <div className="flex items-start">
+              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-1">
+                <Users size={16} className="text-blue-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-900">Club Sponsor</p>
+                <p className="text-gray-600">{club.sponsor}</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start">
+              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-1">
+                <BarChart3 size={16} className="text-green-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-900">Category</p>
+                <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${categoryColors[club.category]} mt-1`}>
+                  {club.category}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Stats Card */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 px-6 py-4 border-b border-gray-100">
+            <h3 className="text-lg font-bold text-gray-900">Quick Facts</h3>
+          </div>
+          <div className="p-6 space-y-4">
+            <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <span className="text-sm font-medium text-gray-600">Meeting Frequency</span>
+              <span className="text-sm font-semibold text-gray-900">Weekly</span>
+            </div>
+            <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <span className="text-sm font-medium text-gray-600">Open to All Grades</span>
+              <span className="text-sm font-semibold text-green-600">Yes</span>
+            </div>
+            <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+              <span className="text-sm font-medium text-gray-600">Experience Required</span>
+              <span className="text-sm font-semibold text-blue-600">No</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Join Now CTA Card */}
+        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg overflow-hidden text-white">
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-3">Ready to Join?</h3>
+            <p className="text-blue-100 text-sm mb-4">
+              Connect with like-minded students and make a difference!
+            </p>
+            <button className="w-full bg-white text-blue-600 font-semibold py-3 px-4 rounded-xl hover:bg-blue-50 transition-all duration-200 hover:scale-105">
+              Get Started Today
+            </button>
+          </div>
+        </div>
+
+        {/* Social Media Links (if available) */}
+        {club.socialMedia && (
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            <div className="bg-gradient-to-r from-indigo-50 to-blue-50 px-6 py-4 border-b border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900">Follow Us</h3>
+            </div>
+            <div className="p-6 space-y-3">
+              {club.socialMedia.instagram && (
+                <a href={club.socialMedia.instagram} className="flex items-center p-3 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors">
+                  <div className="w-8 h-8 bg-pink-500 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white text-xs font-bold">IG</span>
+                  </div>
+                  <span className="text-sm font-medium text-gray-900">Instagram</span>
+                </a>
+              )}
+              {club.socialMedia.website && (
+                <a href={club.socialMedia.website} className="flex items-center p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">
+                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white text-xs font-bold">WEB</span>
+                  </div>
+                  <span className="text-sm font-medium text-gray-900">Website</span>
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-blue-50 to-slate-50 flex">
